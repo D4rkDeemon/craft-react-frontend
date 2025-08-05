@@ -10,3 +10,4 @@ export const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
     </button>
   );
 };
+
