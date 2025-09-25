@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+/*
+ * Bootstrap overrides
+ */
+ @media (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+      width: 1350px;
+  }
+}
+@media (min-width: 1600px) {
+  .container {
+      width: 1540px;
+  }
+}

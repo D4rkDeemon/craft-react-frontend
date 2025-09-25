@@ -1,0 +1,10 @@
+.position {
+    
+}
+
+.is-pinned {
+    background-color: yellow;
+    position: sticky;
+    top: calc(var(--sticky-top) * 38.23px);
+    bottom: calc(var(--sticky-bottom) * 38.23px);
+}

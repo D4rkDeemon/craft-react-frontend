@@ -2,8 +2,7 @@ const TOKEN = "CvcTgb3odhJpf_sUfn7RU8pOFZardOxO"
 const API_URL = 'http://localhost:8080/api';
 
 export async function GetAnimals() {
-
-    let data = await fetchDataFromCraftCMS(`{
+    const data = await fetchDataFromCraftCMS(`{
         entries(section: "animals") {
             id
             title
@@ -13,10 +12,14 @@ export async function GetAnimals() {
         }
     }`);
 
+    if (!data || !data.data || !data.data.entries) {
+        console.error("No data found or invalid response structure:", data);
+        return Promise.resolve(['An error occurred while fetching animals']);
+    }
+
     let animals = data.data.entries;
 
     let hirarchicalAnimals = [];
-    let output = "";
 
     for (let i = 0; i < animals.length; i++) {
       if (animals[i].parent) {
@@ -35,7 +38,10 @@ export async function GetAnimals() {
 
 
 async function fetchDataFromCraftCMS(query: string): Promise<any> {
-    const response = await fetch(API_URL, {
+  let response;
+
+  try {
+    response = await fetch(API_URL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -45,6 +51,10 @@ async function fetchDataFromCraftCMS(query: string): Promise<any> {
             query: query 
         })
     });
+  } catch (error) {
+      console.error("Error fetching animals:", error);
+      return Promise.resolve([]);
+  }
 
-    return await response.json();
+  return await response.json();
 }

@@ -22,7 +22,7 @@ export function Animals() {
     );
 }
 
-function LoadAnimals() {
+async function LoadAnimals() {
     const dataContainer = document.getElementById('data-container');
     if (!dataContainer) {
         return;
@@ -30,7 +30,8 @@ function LoadAnimals() {
     
     dataContainer.innerHTML = '<span>Loading...</span>';
 
-    let data = GetAnimals();
+    dataContainer.innerHTML = JSON.stringify(await GetAnimals());
+    
 
     // if (!data) {
     //     dataContainer.innerHTML = '<span>Error loading data</span>';
@@ -58,5 +59,4 @@ function LoadAnimals() {
     // }
     // dataContainer.innerHTML = output;
 
-    dataContainer.innerHTML = JSON.stringify(data);
 }

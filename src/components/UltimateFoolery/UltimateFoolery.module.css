@@ -1,0 +1,33 @@
+.ultimateFoolery {
+    background-color: #f0f0f0;
+    border-radius: 16px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+}
+
+.cardContainer {
+    /* display: flex;
+    flex-direction: column;
+    gap: 16px; */
+
+    background-color: rosybrown;
+    column-count: 2;
+    column-gap: 1px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+}
+
+p {
+    margin: 12px;
+}
+
+
+.cardContainer > * {
+    box-sizing: border-box;
+    background-color: navajowhite;
+    break-inside: avoid;
+    padding: 0; 
+    margin: 0;
+}

@@ -1,0 +1,9 @@
+.leaderboard {
+    background-color: white;
+    color: black;
+}
+
+.leaderboard ul {
+    list-style: none;
+    padding: 0;
+}
